@@ -3,43 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chefe 🧠</title>
+<title>Atlas Uno 🌍</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0f1115;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;padding:0}
-.top{background:linear-gradient(135deg,#7c3aed,#ec4899);padding:18px 16px 22px;text-align:center;border-radius:0 0 24px 24px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.top h1{margin:0;font-size:22px}
-.top p{margin:6px 0 0;opacity:.9;font-size:13px}
-.main{max-width:720px;margin:14px auto;padding:0 12px 20px}
-.card{background:#1c1f27;border:1px solid #2a2e3a;padding:14px;border-radius:18px;margin:12px 0}
-.card b{font-size:14px}
-input,select{width:100%;padding:13px 12px;border-radius:12px;border:1px solid #2a2e3a;background:#11141b;color:#fff;margin-top:8px;outline:none;font-size:14px}
-input:focus{border-color:#7c3aed}
-.btn{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;border:none;padding:13px;border-radius:12px;font-weight:800;cursor:pointer;width:100%;margin-top:8px;font-size:14px}
-#chat{height:340px;overflow-y:auto;background:#11141b;border:1px solid #2a2e3a;padding:12px;border-radius:18px;margin:12px 0}
-.msg{background:#232733;padding:11px 13px;border-radius:16px 16px 16px 4px;margin:8px 0;font-size:14px;line-height:1.5;max-width:90%}
-.me{background:#7c3aed;margin-left:auto;border-radius:16px 16px 4px 16px;text-align:left}
-.iaMsg{background:#1e2a3a}
-.modMsg{background:#2a2113;border:1px solid #f59e0b}
-.row{display:flex;gap:8px}
-.row input{flex:1}
-.row .btn{width:auto;padding:13px 18px}
+body{margin:0;background:#0b141a;color:#e9edef;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.top{background:#075e54;padding:14px 14px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.avatar{width:52px;height:52px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;border:2px solid #fff}
+.top h1{margin:0;font-size:20px;line-height:1.1}
+.top p{margin:3px 0 0;font-size:12px;color:#a8e6c5}
+.dot{width:9px;height:9px;background:#25d366;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px #25d36633}
+.main{max-width:760px;margin:auto;padding:12px 10px 20px}
+.card{background:#111b21;border:1px solid #222d34;padding:14px;border-radius:16px;margin:12px 0}
+.card b{font-size:14px;color:#fff}
+input,select{width:100%;padding:13px 12px;border-radius:12px;border:1px solid #222d34;background:#202c33;color:#fff;margin-top:8px;outline:none;font-size:14px}
+input:focus{border-color:#25d366}
+.btn{background:#00a884;color:#fff;border:none;padding:13px;border-radius:12px;font-weight:800;cursor:pointer;width:100%;margin-top:8px;font-size:14px}
+#chat{height:360px;overflow-y:auto;background:#0b141a;background-image:radial-gradient(#1a2a33 1px, transparent 1px);background-size:22px 22px;padding:14px;border-radius:16px;margin:12px 0;border:1px solid #222d34}
+.msg{background:#202c33;padding:11px 13px;border-radius:14px 14px 14px 4px;margin:8px 0;font-size:14.5px;line-height:1.55;max-width:88%;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.me{background:#005c4b;margin-left:auto;border-radius:14px 14px 4px 14px}
+.iaMsg{background:#202c33}
+.modMsg{background:#2a2a1a;border:1px solid #f59e0b}
+.row{display:flex;gap:8px;align-items:center;background:#111b21;padding:8px;border-radius:99px;border:1px solid #222d34}
+.row input{flex:1;background:transparent;border:none;margin:0}
+.row .btn{width:auto;padding:12px 20px;border-radius:99px;margin:0}
 .small{font-size:12px;opacity:.75}
-.pill{display:inline-block;background:#ffffff22;padding:4px 10px;border-radius:99px;font-size:11px;margin-top:6px}
+.pill{display:inline-block;background:#00a88422;color:#25d366;padding:5px 10px;border-radius:99px;font-size:11px;font-weight:700;margin-top:6px;border:1px solid #00a88444}
+.badge{background:#25d366;color:#075e54;font-size:11px;font-weight:900;padding:3px 8px;border-radius:99px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>Chefe 🧠☁️</h1>
-<p>Multi Servidor, 1 Cérebro! • Feita em Caxias do Sul</p>
-<span class="pill">🟢 ONLINE</span> <span class="pill">💬 CHAT</span> <span class="pill">📚 MEMÓRIA</span>
+<div class="avatar">🌍</div>
+<div style="flex:1">
+<h1>Atlas Uno 🌍 <span class="badge">UNO</span></h1>
+<p><span class="dot"></span> online agora • 1 Cérebro, Vários Corpos • Caxias do Sul</p>
+</div>
+<div style="font-size:22px">📞 &nbsp; 🎥</div>
 </div>
 <div class="main">
+<div style="text-align:center"><span class="pill">🔒 ATLAS UNO • MEMÓRIA COMPARTILHADA • GRANDIOSO</span></div>
 <div class="card">
 <b>🧠 CÉREBRO (Supabase)</b>
 <input id="supaUrl" placeholder="Supabase URL - ex: https://xyz.supabase.co">
 <input id="supaKey" placeholder="Supabase Key (anon public)">
-<button class="btn" onclick="conectarCerebro()">Conectar Cérebro</button>
+<button class="btn" onclick="conectarCerebro()">Conectar Cérebro 🧠</button>
 <div id="statusCerebro" class="small" style="margin-top:8px">Sem cérebro ainda, usando memória local.</div>
 </div>
 <div class="card">
@@ -48,16 +55,16 @@ input:focus{border-color:#7c3aed}
 <input id="srv2" placeholder="Servidor 2 - ex: https://teu-render.onrender.com">
 <input id="srv3" placeholder="Servidor 3">
 <select id="modelo"><option value="llama3.2">llama3.2</option><option value="llama3">llama3</option><option value="mistral">mistral</option><option value="phi3">phi3</option></select>
-<button class="btn" onclick="testarTodos()">Testar todos os servidores</button>
+<button class="btn" onclick="testarTodos()">Testar todos os servidores ⚡</button>
 <div id="statusSrv" class="small" style="margin-top:8px"></div>
 </div>
 <div class="card"><b>📚 MEMÓRIA</b><div id="memoria" style="font-size:12px;margin-top:8px">Nada ainda</div></div>
 <div id="chat"></div>
-<div class="row"><input id="inp" placeholder="Fala com ela..."><button class="btn" onclick="enviar(document.getElementById('inp').value)">Enviar</button></div>
-<p class="small" style="text-align:center;margin-top:12px">Comandos: <b>me ensina que...</b> | <b>mostra meu banco</b> | <b>sincronizar</b></p>
+<div class="row"><input id="inp" placeholder="Fala com o Atlas Uno..."><button class="btn" onclick="enviar(document.getElementById('inp').value)">Enviar ➤</button></div>
+<p class="small" style="text-align:center;margin-top:12px">Comandos: <b>me ensina que...</b> | <b>mostra meu banco</b> | <b>sincronizar</b> • Atlas Uno 🌍 Feito com 💚 em Caxias do Sul</p>
 </div>
 <script>
-var memoria = JSON.parse(localStorage.getItem('chefe_multi_memoria')||'[]');
+var memoria = JSON.parse(localStorage.getItem('atlas_uno_memoria')||'[]');
 var base = [
  {tema:'python', fato:'Python: print("Oi") mostra Oi. Fácil, pra IA, sites, automação.'},
  {tema:'programação', fato:'Programação é dar ordens passo a passo, como receita de bolo. Começa com Python!'},
@@ -65,20 +72,20 @@ var base = [
  {tema:'multi servidor', fato:'Multi servidor = vários corpos, 1 cérebro. Cérebro no Supabase, corpos no Render/Vercel/Hugging Face. Se 1 cair, outro assume!'}
 ];
 function addChat(q,t,c){var d=document.getElementById('chat'); d.innerHTML += '<div class="msg '+(c||'')+'"><b>'+q+':</b> '+t+'</div>'; d.scrollTop=99999;}
-function salvar(){localStorage.setItem('chefe_multi_memoria',JSON.stringify(memoria)); renderMem(); sincronizarCerebro();}
-function renderMem(){var a=document.getElementById('memoria'); a.innerHTML = memoria.length? memoria.slice(-5).reverse().map(x=>'<div style="background:#11141b;padding:8px;border-radius:12px;margin:5px 0;font-size:12px">📌 <b>'+x.tema+'</b>: '+x.fato.slice(0,60)+'...<br><small>'+x.ia+'</small></div>').join('') : 'Nada ainda';}
+function salvar(){localStorage.setItem('atlas_uno_memoria',JSON.stringify(memoria)); renderMem(); sincronizarCerebro();}
+function renderMem(){var a=document.getElementById('memoria'); a.innerHTML = memoria.length? memoria.slice(-5).reverse().map(x=>'<div style="background:#0b141a;padding:8px;border-radius:12px;margin:5px 0;font-size:12px;border:1px solid #222d34">📌 <b>'+x.tema+'</b>: '+x.fato.slice(0,60)+'...<br><small>'+x.ia+'</small></div>').join('') : 'Nada ainda';}
 function falar(t){try{var s=new SpeechSynthesisUtterance(t.replace(/[^a-zA-Z0-9áàâãéêíóôõúç .,!?]/gi,'').slice(0,250)); s.lang='pt-BR'; window.speechSynthesis.speak(s);}catch(e){}}
 function getServidores(){ return [document.getElementById('srv1').value.trim(), document.getElementById('srv2').value.trim(), document.getElementById('srv3').value.trim()].filter(s=>s); }
 async function conectarCerebro(){
   var url=document.getElementById('supaUrl').value.trim(); var key=document.getElementById('supaKey').value.trim();
   if(!url||!key){ document.getElementById('statusCerebro').innerHTML='Cola URL e Key do Supabase! Sem isso, usa memória local.'; return; }
-  localStorage.setItem('chefe_supa_url',url); localStorage.setItem('chefe_supa_key',key);
+  localStorage.setItem('atlas_supa_url',url); localStorage.setItem('atlas_supa_key',key);
   document.getElementById('statusCerebro').innerHTML='🟢 <b>Cérebro conectado!</b> '+url;
-  addChat('Chefe 🧠','🟢 <b>Cérebro conectado!</b> Agora todos os servidores leem a mesma memória!', 'modMsg');
+  addChat('Atlas Uno 🌍','🟢 <b>Cérebro conectado!</b> Agora todos os corpos leem a mesma memória!', 'modMsg');
   sincronizarCerebro();
 }
 async function sincronizarCerebro(){
-  var url=localStorage.getItem('chefe_supa_url'); var key=localStorage.getItem('chefe_supa_key');
+  var url=localStorage.getItem('atlas_supa_url'); var key=localStorage.getItem('atlas_supa_key');
   if(!url||!key) return;
   try{ for(var i=0;i<memoria.length;i++){ var m=memoria[i]; await fetch(url+'/rest/v1/memoria',{method:'POST',headers:{'apikey':key,'Authorization':'Bearer '+key,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},body:JSON.stringify({tema:m.tema,fato:m.fato,ia:m.ia})}); } }catch(e){}
 }
@@ -90,28 +97,28 @@ async function testarTodos(){
 async function perguntarMulti(pergunta){
   var modelo=document.getElementById('modelo').value; var q=pergunta.toLowerCase(); var srvs=getServidores();
   var achado=memoria.filter(f=>{var txt=(f.tema+' '+f.fato).toLowerCase(); return q.split(' ').filter(w=>w.length>2).some(p=>txt.indexOf(p)!==-1);});
-  if(achado.length>0 && (q.indexOf('qual')!==-1||q.indexOf('nome')!==-1)){ addChat('Chefe 🧠','Achei no cérebro! Tu me ensinou: <b>'+achado[0].fato+'</b>', 'iaMsg'); falar(achado[0].fato); return; }
+  if(achado.length>0 && (q.indexOf('qual')!==-1||q.indexOf('nome')!==-1)){ addChat('Atlas Uno 🌍','Achei no cérebro! Tu me ensinou: <b>'+achado[0].fato+'</b>', 'iaMsg'); falar(achado[0].fato); return; }
   var achadoBase=base.filter(f=>q.indexOf(f.tema.split(' ')[0])!==-1);
-  if(achadoBase.length>0 && q.length<60){ addChat('Chefe 📚',achadoBase[0].fato, 'iaMsg'); return; }
+  if(achadoBase.length>0 && q.length<60){ addChat('Atlas Uno 📚',achadoBase[0].fato, 'iaMsg'); return; }
   for(var i=0;i<srvs.length;i++){
     try{
-      addChat('Chefe 🔌','Tentando Corpo '+(i+1)+' com '+modelo+'...', 'iaMsg');
-      var resp=await fetch(srvs[i]+'/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:modelo,prompt:'Você é a Chefe, IA brasileira, fala natural, tchê, bah, né, como amiga de Caxias do Sul. Curta, natural. Pergunta: '+pergunta, stream:false})});
+      addChat('Atlas Uno 🔌','Tentando Corpo '+(i+1)+' com '+modelo+'...', 'iaMsg');
+      var resp=await fetch(srvs[i]+'/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:modelo,prompt:'Você é o Atlas Uno, IA brasileira grandiosa, carrega o mundo, fala natural, tchê, bah, né, como amigo de Caxias do Sul. Curta, natural, poderosa. Pergunta: '+pergunta, stream:false})});
       var j=await resp.json(); var resposta=j.response||'Sem resposta';
       memoria.push({tema:pergunta.slice(0,40), fato:resposta.slice(0,300), ia: modelo+' via Servidor '+(i+1)}); salvar();
-      addChat('Chefe 🤖',resposta+'<br><br><small>Via '+srvs[i]+' | Salvo no Cérebro!</small>', 'iaMsg'); falar(resposta); return;
+      addChat('Atlas Uno 🤖',resposta+'<br><br><small>Via '+srvs[i]+' | Salvo no Cérebro!</small>', 'iaMsg'); falar(resposta); return;
     }catch(e){}
   }
-  addChat('Chefe 🔴','Todos os servidores falharam! Liga teu PC: CMD > <b>set OLLAMA_ORIGINS=*</b> + <b>ollama serve</b>', 'iaMsg');
+  addChat('Atlas Uno 🔴','Todos os corpos falharam! Liga teu PC: CMD > <b>set OLLAMA_ORIGINS=*</b> + <b>ollama serve</b>', 'iaMsg');
 }
-addChat('Chefe','Oii! Agora eu sou <b>Multi-Servidor, 1 Cérebro</b>! 🧠☁️<br><br>1. Cria conta no <b>supabase.com</b> > Copia URL e Key > Cola ali em cima > <b>Conectar Cérebro</b><br>2. Clica <b>Testar todos os servidores</b><br>3. Ensina Thor aqui, ela lembra no celular também!', 'modMsg');
+addChat('Atlas Uno','Oii! Eu sou o <b>Atlas Uno</b>! 🌍💚<br><br>Carrego o mundo nas costas, 1 Cérebro, Vários Corpos!<br><br>1. Cria conta no <b>supabase.com</b> > Copia URL e Key > Cola ali em cima > <b>Conectar Cérebro</b><br>2. Clica <b>Testar todos os servidores</b><br>3. Ensina Thor aqui, eu lembro no celular também!', 'modMsg');
 renderMem();
-document.getElementById('supaUrl').value=localStorage.getItem('chefe_supa_url')||'';
-document.getElementById('supaKey').value=localStorage.getItem('chefe_supa_key')||'';
+document.getElementById('supaUrl').value=localStorage.getItem('atlas_supa_url')||'';
+document.getElementById('supaKey').value=localStorage.getItem('atlas_supa_key')||'';
 function enviar(t){ t=(t||'').trim(); if(!t) return; addChat('Tu',t,'me'); document.getElementById('inp').value=''; var x=t.toLowerCase();
- if(x.indexOf('sincronizar')!==-1){ sincronizarCerebro(); addChat('Chefe 🔄','Sincronizei! Memória local -> Cérebro (Supabase)!', 'modMsg'); return; }
- if(x.indexOf('mostra meu banco')!==-1){ var s='<b>📚 CÉREBRO ÚNICO:</b><br>Base: '+base.map(f=>'• '+f.tema+': '+f.fato.slice(0,60)+'<br>').join('')+'<br>Memória ('+memoria.length+'): '+memoria.map(f=>'• <b>'+f.tema+'</b>: '+f.fato.slice(0,60)+' via '+f.ia+'<br>').join(''); addChat('Chefe 📚',s,'modMsg'); return; }
- if(x.indexOf('me ensina que')!==-1){ var fato=t.replace(/me ensina que/gi,'').trim(); var tema=fato.indexOf('cachorro')!==-1?'cachorro':fato.split(' ').slice(0,3).join(' '); memoria.push({tema,fato,ia:'Ensinado por ti'}); salvar(); addChat('Chefe 🎓','✅ <b>APRENDI!</b> '+fato, 'modMsg'); return; }
+ if(x.indexOf('sincronizar')!==-1){ sincronizarCerebro(); addChat('Atlas Uno 🔄','Sincronizei! Memória local -> Cérebro (Supabase)!', 'modMsg'); return; }
+ if(x.indexOf('mostra meu banco')!==-1){ var s='<b>📚 CÉREBRO ÚNICO:</b><br>Base: '+base.map(f=>'• '+f.tema+': '+f.fato.slice(0,60)+'<br>').join('')+'<br>Memória ('+memoria.length+'): '+memoria.map(f=>'• <b>'+f.tema+'</b>: '+f.fato.slice(0,60)+' via '+f.ia+'<br>').join(''); addChat('Atlas Uno 📚',s,'modMsg'); return; }
+ if(x.indexOf('me ensina que')!==-1){ var fato=t.replace(/me ensina que/gi,'').trim(); var tema=fato.indexOf('cachorro')!==-1?'cachorro':fato.split(' ').slice(0,3).join(' '); memoria.push({tema,fato,ia:'Ensinado por ti'}); salvar(); addChat('Atlas Uno 🎓','✅ <b>APRENDI E GUARDEI NO MUNDO!</b> '+fato, 'modMsg'); return; }
  perguntarMulti(t);
 }
 document.getElementById('inp').addEventListener('keydown',function(e){if(e.key==='Enter') enviar(e.target.value);});
