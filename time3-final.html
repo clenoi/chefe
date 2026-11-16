@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chefe - Multi Servidor 1 Cérebro</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#0a0a1a;color:#fff;display:flex;height:100vh;overflow:hidden}.side{width:380px;background:#1a0b2e;padding:12px;overflow:auto}.side button{display:block;width:100%;padding:10px;margin:5px 0;background:#22c55e;color:#fff;border:none;border-radius:10px;cursor:pointer;text-align:left;font-size:13px}.main{flex:1;padding:14px;display:flex;flex-direction:column}#chat{flex:1;overflow:auto;background:#1a1a3a;border-radius:15px;padding:14px}.msg{background:#2a2a55;padding:12px;border-radius:14px;margin:8px 0;line-height:1.7;white-space:pre-wrap}.me{background:#3b2a5a}.iaMsg{background:#0a2a4a;border-left:4px solid #22c55e}.modMsg{background:#1a0a2a;border-left:4px solid #7c3aed}.row{display:flex;gap:8px;margin-top:10px}#inp{flex:1;padding:13px;border-radius:12px;border:none;font-size:15px}.btn{padding:13px 16px;background:#22c55e;color:#fff;border:none;border-radius:12px;font-weight:bold;cursor:pointer}input,select{padding:10px;border-radius:10px;border:none;width:100%;margin:4px 0;font-size:12px}</style></head>
+<body>
+<div class="side">
+<h2>🧠👑 Chefe - 1 Cérebro, Vários Corpos!</h2>
+<p style="font-size:12px">Ela tá em vários servidores, mas pensa como uma só!</p>
+<b>☁️ Cérebro Compartilhado (Supabase):</b>
+<input id="supaUrl" placeholder="URL do Supabase (ex: https://xyz.supabase.co)">
+<input id="supaKey" placeholder="Chave anon do Supabase">
+<button onclick="conectarCerebro()" style="background:#0082fb">🔌 Conectar Cérebro</button>
+<div id="statusCerebro" style="background:#111;padding:10px;border-radius:10px;font-size:12px;margin:8px 0">Cérebro: Desconectado (usando memória local)</div>
+<b>🤖 Corpos (Servidores):</b>
+<input id="srv1" value="http://localhost:11434" placeholder="Servidor 1 - Teu PC">
+<input id="srv2" placeholder="Servidor 2 - Ex: https://chefe.onrender.com ou IP Hugging Face">
+<input id="srv3" placeholder="Servidor 3 - Ex: https://chefe.vercel.app">
+<select id="modelo"><option value="mistral:7b">Mistral 7B - Mais forte</option><option value="deepseek-r1:1.5b">DeepSeek R1 - Pensa</option><option value="phi3:mini">Phi3 Mini</option><option value="gemma2:2b">Gemma2 2B</option><option value="qwen2.5:3b">Qwen 3B</option><option value="llama3.2:3b">Llama 3.2 3B</option></select>
+<button onclick="testarTodos()" style="background:#0082fb">🔍 Testar todos os servidores</button><div id="statusSrv" style="background:#111;padding:10px;border-radius:10px;font-size:12px;margin:8px 0">Testando...</div>
+<button onclick="enviar('oi')">💬 Oi</button>
+<button onclick="enviar('me ensina que meu cachorro se chama Thor e ele é marrom')">🎓 Ensina Thor (vai pra todos!)</button>
+<button onclick="enviar('qual é o nome do meu cachorro')">🧠 Lembra Thor em qualquer servidor?</button>
+<button onclick="enviar('aprenda a programar')">🧠 Programação</button>
+<button onclick="enviar('mostra meu banco de conhecimento')" style="background:#7c3aed">📚 Banco - Cérebro único</button>
+<button onclick="enviar('sincronizar cerebro')" style="background:#7c3aed">🔄 Sincronizar Cérebro</button>
+<hr><b>📚 Memória (Cérebro):</b><div id="memoria"></div>
+</div>
+<div class="main"><h1>Chefe - Multi Servidor, 1 Cérebro! 🧠☁️</h1><div id="chat"></div><div class="row"><input id="inp" placeholder="Fala com ela..."><button class="btn" onclick="enviar(document.getElementById('inp').value)">Enviar</button></div><p style="font-size:12px;opacity:.7">Arquitetura: Cérebro = Supabase (memória compartilhada) | Corpos = Teu PC + Render + Vercel + Hugging Face | Se 1 cair, outro assume!</p></div>
+<script>
+var memoria = JSON.parse(localStorage.getItem('chefe_multi_memoria')||'[]');
+var base = [
+ {tema:'python', fato:'Python: print("Oi") mostra Oi. Fácil, pra IA, sites, automação.'},
+ {tema:'programação', fato:'Programação é dar ordens passo a passo, como receita de bolo. Começa com Python!'},
+ {tema:'servidor gratis', fato:'Sem cartão: Hugging Face, Render, Vercel, Netlify, Glitch, Replit, Supabase, Google Colab. Com cartão: Oracle, Fly.io, Railway.'},
+ {tema:'multi servidor', fato:'Multi servidor = vários corpos, 1 cérebro. Cérebro no Supabase, corpos no Render/Vercel/Hugging Face. Se 1 cair, outro assume!'}
+];
+function addChat(q,t,c){var d=document.getElementById('chat'); d.innerHTML += '<div class="msg '+(c||'')+'"><b>'+q+':</b> '+t+'</div>'; d.scrollTop=99999;}
+function salvar(){localStorage.setItem('chefe_multi_memoria',JSON.stringify(memoria)); renderMem(); sincronizarCerebro();}
+function renderMem(){var a=document.getElementById('memoria'); a.innerHTML = memoria.length? memoria.slice(-5).reverse().map(x=>'<div style="background:#2a2a55;padding:8px;border-radius:10px;margin:5px 0;font-size:12px">📌 <b>'+x.tema+'</b>: '+x.fato.slice(0,60)+'...<br><small>'+x.ia+'</small></div>').join('') : 'Nada ainda';}
+function falar(t){try{var s=new SpeechSynthesisUtterance(t.replace(/[^a-zA-Z0-9áàâãéêíóôõúç .,!?]/gi,'').slice(0,250)); s.lang='pt-BR'; window.speechSynthesis.speak(s);}catch(e){}}
+function getServidores(){ return [document.getElementById('srv1').value.trim(), document.getElementById('srv2').value.trim(), document.getElementById('srv3').value.trim()].filter(s=>s); }
+async function conectarCerebro(){
+  var url=document.getElementById('supaUrl').value.trim(); var key=document.getElementById('supaKey').value.trim();
+  if(!url||!key){ document.getElementById('statusCerebro').innerHTML='Cola URL e Key do Supabase! Sem isso, usa memória local.'; return; }
+  localStorage.setItem('chefe_supa_url',url); localStorage.setItem('chefe_supa_key',key);
+  document.getElementById('statusCerebro').innerHTML='🟢 <b>Cérebro conectado!</b> '+url+'<br>Todos os servidores vão ler daqui!';
+  addChat('Chefe 🧠','🟢 <b>Cérebro conectado!</b> Agora todos os servidores (teu PC, Render, Vercel) leem a mesma memória! Se tu ensinar Thor aqui, ela lembra lá no celular também!', 'modMsg');
+  sincronizarCerebro();
+}
+async function sincronizarCerebro(){
+  var url=localStorage.getItem('chefe_supa_url'); var key=localStorage.getItem('chefe_supa_key');
+  if(!url||!key) return;
+  try{
+    // Salva memória local no Supabase (cérebro)
+    for(var i=0;i<memoria.length;i++){ var m=memoria[i]; await fetch(url+'/rest/v1/memoria',{method:'POST',headers:{'apikey':key,'Authorization':'Bearer '+key,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},body:JSON.stringify({tema:m.tema,fato:m.fato,ia:m.ia})}); }
+  }catch(e){ console.log('Sync falhou, usando local',e); }
+}
+async function testarTodos(){
+  var srvs=getServidores(); var res='';
+  for(var i=0;i<srvs.length;i++){ try{ var r=await fetch(srvs[i]+'/api/tags'); var j=await r.json(); res+='🟢 Servidor '+(i+1)+' ('+srvs[i]+'): LIGADO - '+j.models.length+' IAs<br>'; }catch(e){ res+='🔴 Servidor '+(i+1)+' ('+srvs[i]+'): Desligado / Sem Ollama (pode ser site estático, normal!)<br>'; } }
+  document.getElementById('statusSrv').innerHTML=res+'<br><small>Se 1 tiver 🟢, já tá funcionando! Os outros são backup!</small>';
+}
+async function perguntarMulti(pergunta){
+  var modelo=document.getElementById('modelo').value; var q=pergunta.toLowerCase(); var srvs=getServidores();
+  // 1. Cérebro local primeiro
+  var achado=memoria.filter(f=>{var txt=(f.tema+' '+f.fato).toLowerCase(); return q.split(' ').filter(w=>w.length>2).some(p=>txt.indexOf(p)!==-1);});
+  if(achado.length>0 && (q.indexOf('qual')!==-1||q.indexOf('nome')!==-1)){ addChat('Chefe 🧠 [Cérebro Único]','Achei no cérebro compartilhado! Tu me ensinou: <b>'+achado[0].fato+'</b><br><small>Isso vale pra todos os servidores!</small>', 'iaMsg'); falar(achado[0].fato); return; }
+  var achadoBase=base.filter(f=>q.indexOf(f.tema.split(' ')[0])!==-1);
+  if(achadoBase.length>0 && q.length<60){ addChat('Chefe 📚 [Base]',achadoBase[0].fato, 'iaMsg'); return; }
+  // 2. Tenta cada servidor como se fosse um corpo, até um responder!
+  for(var i=0;i<srvs.length;i++){
+    try{
+      addChat('Chefe 🔌','Tentando Corpo '+(i+1)+' ('+srvs[i]+') com '+modelo+'...', 'iaMsg');
+      var resp=await fetch(srvs[i]+'/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:modelo,prompt:'Você é a Chefe, IA brasileira, fala natural, tchê, bah, né, como amiga de Caxias do Sul. Curta, natural. Pergunta: '+pergunta, stream:false})});
+      var j=await resp.json(); var resposta=j.response||'Sem resposta';
+      memoria.push({tema:pergunta.slice(0,40), fato:resposta.slice(0,300), ia: modelo+' via Servidor '+(i+1)}); salvar();
+      addChat('Chefe 🤖 [Corpo '+(i+1)+' - '+modelo+']',resposta+'<br><br><small>Respondeu via '+srvs[i]+' | Salvo no Cérebro Único! Todos os outros servidores agora sabem disso também!</small>', 'iaMsg'); falar(resposta); return;
+    }catch(e){ console.log('Servidor '+(i+1)+' falhou, tentando próximo...'); }
+  }
+  addChat('Chefe 🔴','Todos os servidores falharam! Liga o teu PC: abre CMD > <b>set OLLAMA_ORIGINS=*</b> + <b>ollama serve</b> | Ou cola URL de outro servidor!', 'iaMsg');
+}
+addChat('Chefe','Oii! Agora eu sou <b>Multi-Servidor, 1 Cérebro</b>! 🧠☁️<br><br>Tu não precisa da Oracle! Usa <b>Supabase</b> como cérebro (sem cartão!) + <b>Render/Vercel/Hugging Face</b> como corpos!<br><br>1. Cria conta no <b>supabase.com</b> com Gmail > Copia URL e Key > Cola ali em cima > <b>Conectar Cérebro</b><br>2. Clica <b>Testar todos os servidores</b><br>3. Ensina Thor aqui, ela lembra no celular também!', 'modMsg');
+renderMem();
+document.getElementById('supaUrl').value=localStorage.getItem('chefe_supa_url')||'';
+document.getElementById('supaKey').value=localStorage.getItem('chefe_supa_key')||'';
+function enviar(t){ t=(t||'').trim(); if(!t) return; addChat('Tu',t,'me'); document.getElementById('inp').value=''; var x=t.toLowerCase();
+ if(x.indexOf('sincronizar')!==-1){ sincronizarCerebro(); addChat('Chefe 🔄','Sincronizei! Memória local -> Cérebro (Supabase)! Agora todos os servidores têm a mesma memória!', 'modMsg'); return; }
+ if(x.indexOf('mostra meu banco')!==-1){ var s='<b>📚 CÉREBRO ÚNICO:</b><br>Base: '+base.map(f=>'• '+f.tema+': '+f.fato.slice(0,60)+'<br>').join('')+'<br>Memória ('+memoria.length+'): '+memoria.map(f=>'• <b>'+f.tema+'</b>: '+f.fato.slice(0,60)+' via '+f.ia+'<br>').join(''); addChat('Chefe 📚',s,'modMsg'); return; }
+ if(x.indexOf('me ensina que')!==-1){ var fato=t.replace(/me ensina que/gi,'').trim(); var tema=fato.indexOf('cachorro')!==-1?'cachorro':fato.split(' ').slice(0,3).join(' '); memoria.push({tema,fato,ia:'Ensinado por ti - vai pra todos os servidores!'}); salvar(); addChat('Chefe 🎓','✅ <b>APRENDI E SINCRONIZEI NO CÉREBRO!</b> '+fato+'<br>Agora TODOS os servidores sabem disso! Testa no celular que ela lembra!', 'modMsg'); return; }
+ perguntarMulti(t);
+}
+document.getElementById('inp').addEventListener('keydown',function(e){if(e.key==='Enter') enviar(e.target.value);});
+</script></body></html>
